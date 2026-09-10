@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>IdRef+</title>
+
+		<link rel="shortcut icon" href="img/icon.png" />
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css">
+		
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+		<script src="https://use.fontawesome.com/8f945fc6cf.js"></script>
+		<!-- Piwik -->
+		<script type="text/javascript">
+		  var _paq = _paq || [];
+		  // tracker methods like "setCustomDimension" should be called before "trackPageView"
+		  _paq.push(['trackPageView']);
+		  _paq.push(['enableLinkTracking']);
+		  (function() {
+		    var u="//piwik.abes.fr/";
+		    _paq.push(['setTrackerUrl', u+'piwik.php']);
+		    _paq.push(['setSiteId', '31']);
+		    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+		  })();
+		  <!-- End Piwik Code -->
+
+		  $(document).ready(function(){
+			$('.sidenav').sidenav();
+		  });
+		</script>
+	</head>
+	<body class="grey lighten-5">	
+		<div class="navbar-fixed">
+			<nav class="white">
+				<div class="nav-wrapper">
+				  <a href="https://idrefplus.idref.fr/" target="_blank" class="brand-logo"><img src="img/logo-idref-plus.png" title="IdRef+" alt="IdRef+" /></a>
+				  <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text"><i class="material-icons">menu</i></a>
+				  <ul class="right hide-on-med-and-down">
+					<li class="active"><a href="/index.html" class="black-text">Accueil</a></li>						
+					<li><a href="/exploration.html" class="black-text">Exploration</a></li>
+					<li><a href="/yasgui.html" class="black-text">Yasgui</a></li>
+					<li><a href="/sparql" class="black-text">Sparql endpoint</a></li>
+					<li>
+						<a href="http://documentation.abes.fr/aideidrefplus/index.html" target="_blank" >
+							<img src="img/aide.png" title="Documentation" alt="Documentation" />
+						</a>
+					</li>
+				  </ul>
+				</div>
+			</nav>
+		</div>
+		<ul class="sidenav white" id="mobile-demo">
+			<li class="active"><a href="/index.html" class="black-text">Accueil</a></li>
+			<li><a href="/exploration.html" class="black-text">Exploration</a></li>						
+			<li><a href="/yasgui.html" class="black-text">Yasgui</a></li>
+			<li><a href="/sparql" class="black-text">Sparql endpoint</a></li>
+			<li>
+				<a href="http://documentation.abes.fr/aideidrefrdf/index.html" target="_blank" >
+					<img src="img/aide.png" title="Documentation" alt="Documentation" />
+				</a>
+			</li>
+		</ul>				
+		
+		<div class="container">
+			
+			<div class="row">
+				<div class="col s12 m9">
+					<br/>
+					<h4>
+					Bienvenue sur <span style="color:#26318f;">id<span style="color:#da1259">ref</span>+</span><span style="color:#da1259;"></span><span style="color:#26318f;"></span>
+					</h4>					
+					<p>
+						<h5>Les données</h5>
+						Dans le triplestore IdRef+, vous trouverez <b>le corpus ORCID</b> modélisé et converti sous la forme de triplets RDF.
+          </p>	
+          <p>
+	          <h5>Le corpus</h5>
+	          Chaque année, ORCID met à disposition l'ensemble des données publiques des comptes du registre.
+					Ces données présentent un grand intérêt pour les établissements et acteurs de l'ESR et de l'IST. Or ce volume de données est conséquent et sa manipulation difficile. L'Abes a souhaité rendre plus aisée l'exploration de ce corpus en prenant en charge son ouverture et sa requêtabilité.
+					Outre la transformation des données opérées par la modélisation elle-même, l'Abes en a profité pour ajouter deux enrichissements :
+					<ul>
+						<ol>1. une identification poussée des comptes "français" ;</ol>
+						<ol>2. l'alignement de ces comptes avec IdRef.</ol>
+					</ul>
+		</p>
+
+          <p>
+	          <h5>La modélisation</h5>
+	          Pour naviguer et interroger les données, il faut avoir une idée de leur modélisation.
+					L'Abes a d'abord fait le choix de créer un graphe par compte puis a sélectionné les propriétés les plus intéressantes parmi le schéma de métadonnées des comptes orcid (Ce choix n'est pas gravé dans le marbre et saurait évoluer en fonction des besoins).
+					Voici, sous forme graphique, les propriétés retenues :
+
+					<img src="img/modelisation.png" title="modelisation" alt="modelisation" />
+
+					Afin d'assurer un degré élevé d'interopérabilité, cette modélisation reprend la modélisation utilisée traditionnellement à l'Abes dans le cadre du traitement des corpus éditeurs, notamment son triplestore <a href="https://scienceplus.abes.fr/" target="_blank" class="black-text">Scienceplus</a>.
+          </p>
+          <p>
+            <h5>La navigation</h5>
+            A partir de la barre d’action en haut à droite, 3 modalités d’exploration des données sont proposées, d’une technicité progressive :
+            <ul>
+              <ol>1. L’encart de recherche en langage naturel et de navigation par rebond de lien en lien</ol>
+              <ol>2. Yasgui, l’éditeur de requêtes sparql qui facilite leur rédaction, les mémorise, etc.</ol>
+              <ol>3. L’éditeur sparql brut du triplestore</ol>
+            </ul>
+            Maintenant à vous de jouer ! 
+          </p>  									
+				</div>				
+				<div class="col m3">
+					<br/>
+					<div class="card white">
+						<div class="card-content grey-text text-darken-2">
+							<ul>
+								<li><h6 class="titreEncart">Le RDF à l'Abes </h6>
+									<ul class="listeEncart">
+										<li><a href="http://documentation.abes.fr/aideidrefplus/index.html" target="_blank">idref<span style="color:#da1259;">+</span></a></li>
+										<li><a href="http://documentation.abes.fr/aideidrefdata/index.html" target="_blank">data.idref<span style="color:#da1259;"></span></a></li>
+										<li><a href="https://scienceplus.abes.fr/" target="_blank">Scienceplus</a></li>
+
+										<li>voir aussi <a href="http://documentation.abes.fr/aideidrefrdf/index.html" target="_blank">IdRef en RDF</a></li>
+										<li>voir aussi <a href="http://documentation.abes.fr/sudoc/manuels/administration/sudoc_rdf/index.html#SudocRdf_1" target="_blank">Sudoc en RDF</a></li>
+									</ul>
+								</li>								
+								<li>
+									<h6 class="titreEncart">Triple Store amis</h6>
+									<!--div class="row" >
+										<div class="col s6"-->									
+											<ul class="listeEncart">
+
+												<!--li><a href="https://hub-rnsr.idref.fr/sparql" target="_blank">Structures de l’ESR</a></li-->											
+											</ul>
+										<!--/div>
+										<div class="col s6"-->
+											<ul class="listeEncart">
+											  <li><a href="http://data.bnf.fr/sparql/" target="_blank">BnF</a></li>
+                                              <li><a href="http://data.persee.fr/explorer/sparql-endpoint/" target="_blank">Persée</a></li>
+												<li><a href="https://query.wikidata.org/" target="_blank">Wikidata</a></li>
+												<li><a href="http://sparql.archives-ouvertes.fr/sparql" target="_blank">Hal</a></li>
+												<li><a href="http://www.rechercheisidore.fr/sparql" target="_blank">Isidore</a></li>
+											</ul>
+										<!--/div>
+									</div!-->
+								</li>
+							</ul>
+						</div>					
+					</div>
+				</div>
+			</div>				
+		</div>
+		<footer class="page-footer idref-blue" style="font-size:12px;">
+			<div >
+				<div class="row" >
+					<div class="col m6">
+						<h6 class="white-text">Le triplestore id<span style="color:#da1259">ref</span>+</h6>
+						<p class="grey-text text-lighten-4">
+							Un triplestore est une base de données qui ne contient que des triplets RDF (Resource Description Framework). RDF est le langage de base du Web sémantique.
+							<br/>
+							Un document structuré en RDF est un ensemble de triplets. Un triplet RDF est formellement l'association d'un sujet, d'un prédicat et d'un objet. 							
+							Un document RDF ainsi formé correspond à un multigraphe orienté étiqueté. 
+							<br/>
+							Enfin, SPARQL est le langage d'interrogation standard le plus répandu pour interroger les graphes RDF.
+						</p>
+					</div>	
+					<div class="col m2">
+						<p class="grey-text text-lighten-4">
+							<h6 class="white-text">Assistance</h6> 
+							<ul class="grey-text text-lighten-4">
+								<li>
+								<a class="grey-text text-lighten-3" href="https://assistance.stp.abes.fr/servicedesk/customer/portals" target="_blank">Guichet d'assistance</a></li>
+							</ul>
+						</p>				
+					</div>	
+					<div class="col m2">
+            <p class="grey-text text-lighten-4">
+              <h6 class="white-text">Accéder à</h6> 
+              <ul class="grey-text text-lighten-4">
+                <li>
+		               <a class="grey-text text-lighten-3" href="https://www.idref.fr" target="_blank">
+		                 <img src="img/logo-idref-blanc.png" title="idref.fr" alt="idref.fr" style="width:60%;"/>
+		               </a>
+                 </li>
+              </ul>
+            </p>        
+          </div>    				
+					<div class="col m2">
+					 <div class="row" >
+					  <div class="col m12">
+							<a href="http://www.abes.fr/" target="_blank">
+								<img src="img/logoABESNEG.png" title="ABES" alt="ABES"/>
+							</a>
+						</div>
+						</div>
+						<div class="row" >	
+							<div class="col m2">
+	              <a href="http://www.enseignementsup-recherche.gouv.fr/" target="_blank" class="logo-mesri" rel="nofollow">
+	                <img src="img/logo-mesri.png" title="Ministère de l'enseignement supérieur et de la recherche" alt="logo Mesri" style="margin-left:10px">
+	              </a>          		
+              </div>
+            </div>		
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright idref-blue darken-1">
+				<div class="container">
+					<div class="row" >
+						<div class="col m6">
+							© 2022 ABES
+						</div>
+						<div class="col m6">
+							<a class="grey-text text-lighten-3" href="http://documentation.abes.fr/legislation/donnees_personnelles.html" target="_blank">Données personnelles</a> |
+							<a class="grey-text text-lighten-3" href="https://abes.fr/pages-cgu/conditions-generales-utilisation-sites-abes.html" target="_blank">Conditions Générales d'Utilisation</a> |
+							<a class="grey-text text-lighten-3" href="https://abes.fr/pages-mentions-legales/idref.html" target="_blank">Mentions légales</a> |
+							<a class="grey-text text-lighten-3" href="https://abes.fr/pages-accessibilite/idref.html" target="_blank">Accessibilité numérique</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>		
+	</body>
+</html>
